@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+  var arr = [
+  {comment_id: 99, user_id: 662, comment_date: "05-16", comment_content: "dsadad", parent_id: null, },
+ {comment_id: 100, user_id: 662, comment_date: "05-16", comment_content: "asswwdasdsasd ", parent_id: "99", },
+ {comment_id: 101, user_id: 662, comment_date: "05-16", comment_content: "sdasda", parent_id: "100", },
+ {comment_id: 102, user_id: 662, comment_date: "05-16", comment_content: "fgdgg", parent_id: null, },
+ {comment_id: 214, user_id: 43, comment_date: "05-20", comment_content: "圣诞", parent_id: null,},
+ {comment_id: 322, user_id: 744, comment_date: "05-23", comment_content: "134", parent_id: null, },
+ {comment_id: 572, user_id: 1294, comment_date: "06-08", comment_content: "12345+", parent_id: null, },
+ {comment_id: 577, user_id: 1294, comment_date: "06-08", comment_content: "我是二楼！", parent_id: "572", },
+ {comment_id: 578, user_id: 1294, comment_date: "06-08", comment_content: "我是三楼", parent_id: "572", },
+ {comment_id: 579, user_id: 1294, comment_date: "06-08", comment_content: "我是四楼", parent_id: "572", },
+ {comment_id: 580, user_id: 1294, comment_date: "06-08", comment_content: "1234", parent_id: "322", },
+  ]
+function fn(temp){ //
+    let arr1 = []
+    for(var i=0;i<arr.length;i++){
+        if(arr[i].parent_id == temp){
+            arr1.push(arr[i])
+            arr[i].child = fn(arr[i].comment_id)  //利用递归自己调用自己每次更新参数
+        }
+    }
+    return arr1
+}
+ const res = fn(null);
+ console.log(res)
+</script>
+</html>
